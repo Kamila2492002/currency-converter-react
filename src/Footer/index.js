@@ -2,7 +2,7 @@ import "./style.css";
 
 const Footer = ({ title }) => (
     <fooder>
-      <h1>{title}</h1>
+      <h1 className="footer">{title}</h1>
     </fooder>
 );
 
