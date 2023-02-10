@@ -14,13 +14,10 @@ const Form = () => {
     const onSelectOutCurrency = ({ target }) => setOutCurrency(target.value);
     const calculateResult = () => {
         setResult(result => (
-            (inAmout
-                *
-                currencies.find(currency => currency.name=== inCurrency).toPLN))
-            /
+            (inAmout * currencies.find(currency => currency.name=== inCurrency).toPLN)) /
             currencies.find(currency => currency.name=== outCurrency).toPLN)
-
     };
+
     const onFormSubmit = (event) => {
         event.preventDefault();
         calculateResult();
