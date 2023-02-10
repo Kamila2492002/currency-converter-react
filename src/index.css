@@ -12,6 +12,6 @@ html {
   font-family: "Lato", sans-serif;
   background-color: #eee;
   margin: auto;
-  background-image: url("./tło.jpg");
+  background-image: "./Images/tło.jpg";
   background-position: center;
 }
