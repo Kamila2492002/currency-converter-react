@@ -7,11 +7,15 @@ html {
   box-sizing: inherit;
 }
 
-.body {
-  width: 1000px;
+#root {
+  min-height: 100vh;
   font-family: "Lato", sans-serif;
   background-color: #eee;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("./Images/tło.jpg");
   background-position: center;
+  background-size: cover;
 }

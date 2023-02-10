@@ -11,6 +11,7 @@
 
 .form {
     color: black;
+    min-width: 150vh;
 }
 
 .form__fieldset {
