@@ -9,6 +9,15 @@ Simple currency converter made by me.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Used Technologies
+- HTML
+- CSS Grid
+- Normalize
+- BEM convention
+- JavaScript
+- Git 
+- React
+
 ## Available Scripts
 
 In the project directory, you can run:
