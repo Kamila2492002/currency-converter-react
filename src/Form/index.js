@@ -73,10 +73,12 @@ const Form = () => {
                 <div>
                     <button className="form__button">Przelicz</button>
                 </div>
-                <span className="result">Twoja kwota wynosi:</span>
+                <div className="result">
+                <span>Twoja kwota wynosi:</span>
                         <strong>
                             <Result showResult={showResult} result={result} />
                         </strong>
+                </div>
             </fieldset>
         </form>
     )
