@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./style.css"
+import { StyledClock } from "./styled";
 
 const dateFormat = {
     weekday: "long",
@@ -24,9 +24,9 @@ const Clock = () => {
 }, []);
 
 return (
-    <p className="clock">
+    <StyledClock>
         Dziś jest {date.toLocaleString(undefined, dateFormat)}
-    </p>
+    </StyledClock>
     );
 };
 

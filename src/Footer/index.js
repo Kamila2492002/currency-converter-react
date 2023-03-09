@@ -1,8 +1,8 @@
-import "./style.css";
+import { StyledFooter } from "./styled";
 
 const Footer = ({ title }) => (
     <fooder>
-      <h1 className="footer">{title}</h1>
+      <StyledFooter>{title}</StyledFooter>
     </fooder>
 );
 
