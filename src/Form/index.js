@@ -34,7 +34,8 @@ const Form = () => {
                 <Item>
                 <label>
                     <LabelText>Kwota do wymiany:</LabelText>
-                        <StyledSelect
+                        <StyledSelect 
+                            as="input"
                             value={inAmout}
                             onChange={(event) => setInAmout(event.target.value)}
                             type="number" 

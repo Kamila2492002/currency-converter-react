@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFooter = styled.h1`
+export const FooterHeading = styled.h2`
     width: 100%;
     margin-left: 10 auto;
     padding: 20px;

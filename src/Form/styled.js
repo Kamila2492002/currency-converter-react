@@ -41,7 +41,7 @@ export const LabelText = styled.span`
     font-family: "lato", sans-serif;
 `;
 
-export const StyledSelect = styled.input`
+export const StyledSelect = styled.select`
     margin: auto 10px;
 `;
 

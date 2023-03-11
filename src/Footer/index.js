@@ -1,8 +1,8 @@
-import { StyledFooter } from "./styled";
+import { FooterHeading } from "./styled";
 
 const Footer = ({ title }) => (
     <fooder>
-      <StyledFooter>{title}</StyledFooter>
+      <FooterHeading>{title}</FooterHeading>
     </fooder>
 );
 
