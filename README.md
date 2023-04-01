@@ -1,5 +1,5 @@
 # Currency converter 
-![Screenshot_20221102-123424_Chrome](https://drive.google.com/file/d/1Kbagl-KZkzkTBVTFr5Y1cg53Mr28n85b/view?usp=share_link)
+![Screenshot_20221102-123424_Chrome](https://tinypic.host/images/2023/04/01/Screenshot_20230401-144601_Chrome_2.jpg)
 
 ## Demo
 [MY SIDE](https://kamila2492002.github.io/currency-converter-react/)
