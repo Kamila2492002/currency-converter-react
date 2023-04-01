@@ -46,9 +46,14 @@ export const StyledSelect = styled.select`
 `;
 
 export const Button = styled.button`
-    max-width: 100px;
     position: relative;
-    margin: 20px auto;
+    margin: 0px 0px 15px;
+    transition: 0.5s;
+    width: 100%;
+    background-color: rgb(171 171 171 / 57%);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px #aaa;
 `;
 
 export const StyledResult = styled.div`
@@ -68,4 +73,11 @@ export const Fail = styled.p`
     justify-content: center;
     min-width: 500px;
     min-height: 200px;
+`;
+
+export const StyledParagraph = styled.p`
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+    padding: 2px 0px 0px 0px;
+    font-size: 10px;
 `;
