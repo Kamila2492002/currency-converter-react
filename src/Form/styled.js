@@ -55,3 +55,11 @@ export const StyledResult = styled.div`
     font-weight: bold;
     text-align: center;
 `;
+
+export const Loading = styled.p`
+    color: teal;
+`;
+
+export const Fail = styled.p`
+    color: crimson;
+`;
