@@ -1,13 +1,16 @@
-const Result = ({ showResult, result }) => {
-    if (!showResult.inAmout) {
-        return null;
-    };
-    
-        return (
-            <>
-                {showResult.inAmout} {showResult.inCurrency} = {result.toFixed(2)} {showResult.outCurrency}
-            </>
-        ); 
-};
+import { StyledResult } from "./styled";
 
-export default Result;
+const Result = ({ result }) => (
+    <StyledResult>
+        {result !== undefined && (
+            <>
+            {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;=&nbsp;
+            <strong>
+                {result.targetAmount.toFixed(2)}&nbsp;{result.currency}
+            </strong>
+            </>
+        )}
+    </StyledResult>
+);
+
+export { Result };

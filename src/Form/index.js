@@ -1,43 +1,63 @@
 import { useState } from "react";
-import { StyledForm, Fieldset, Legend, List, Item, LabelText, StyledSelect, Button, StyledResult } from "./styled";
-import currencies from "../currencies";
-import Result from "../Result";
+import { StyledForm, 
+    Fieldset, 
+    Legend, 
+    List, 
+    Item, 
+    LabelText, 
+    StyledSelect, 
+    Button, 
+    StyledResult,
+    Loading,
+    Fail } from "./styled";
+import { Result } from "../Result";
 import Clock from "../Clock";
+import { useRatesData } from "./useRatesData";
 
 const Form = () => {
-    const [inAmout, setInAmout] = useState();
-    const [inCurrency, setInCurrency] = useState("PLN");
-    const [outCurrency, setOutCurrency] = useState("EUR");
     const [result, setResult] = useState();
-    const [showResult, setShowResult] = useState({});
+    const [currency, setCurrency] = useState("EUR");
+    const [amount, setAmount] = useState("");
+    const ratesData = useRatesData();
 
-    const onSelectInCurrency = ({ target }) => setInCurrency(target.value);
-    const onSelectOutCurrency = ({ target }) => setOutCurrency(target.value);
-    const calculateResult = () => {
-        setResult(result => (
-            (inAmout * currencies.find(currency => currency.name=== inCurrency).toPLN)) /
-            currencies.find(currency => currency.name=== outCurrency).toPLN)
-    };
+    const calculateResult = (currency, amount) => {
+        const rate = ratesData.rates[currency];
+
+        setResult({
+            sourceAmount: +amount,
+            targetAmount: amount * rate,
+            currency,
+        });
+    }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        calculateResult();
-        setShowResult(showResult => ({ inAmout, inCurrency, outCurrency }));
+        calculateResult(currency, amount);
     };
 
     return (
         <StyledForm onSubmit={onFormSubmit}>
             <Fieldset>
                 <Legend>Kalkulator Walut</Legend>
+                {ratesData.state === "loading" ? (
+                    <Loading>
+                        Prosimy czekąc, trwa ładowanie kursu walut z Europejskiego Banku Centralnego
+                    </Loading>
+                ) : ratesData.state === "error" ? (
+                    <Fail>
+                        Coś poszło nie tak. Sprawdź połączenie z Internetem lub spróbuj ponownie później.
+                    </Fail>
+                ) : (
+                <section>
                 <Clock/>
                 <List>
                 <Item>
                 <label>
-                    <LabelText>Kwota do wymiany:</LabelText>
+                    <LabelText>Kwota do wymiany w PLN:</LabelText>
                         <StyledSelect 
                             as="input"
-                            value={inAmout}
-                            onChange={(event) => setInAmout(event.target.value)}
+                            value={amount}
+                            onChange={({ target }) => setAmount(target.value)}
                             type="number" 
                             name="pln" 
                             required step="0.01" 
@@ -48,24 +68,19 @@ const Form = () => {
                 </Item>
                 <Item>
                 <label>
-                     <LabelText>Wybierz walutę jaką wymieniasz:</LabelText>
-                        <StyledSelect value={inCurrency} onChange={onSelectInCurrency}>
-                            {currencies.map(currency => (
-                                <option value={currency.name} key={currency.name}>
-                                    {currency.name}</option>
-                        ))}
+                    <LabelText>Wybierz walutę:</LabelText>
+                        <StyledSelect 
+                            value={currency} 
+                            onChange={({ target }) => setCurrency(target.value)} 
+                        >
+                            {Object.keys(ratesData.rates).map((currency) => {
+                                return (
+                                    <option key={currency} value={currency}>
+                                        {currency}
+                                    </option>
+                                );
+                            })}
                         </StyledSelect>
-                </label>
-                </Item>
-                <Item>
-                <label>
-                    <LabelText>Wybierz walutę na jaką chcesz wymienić:</LabelText>
-                    <StyledSelect value={outCurrency} onChange={onSelectOutCurrency}>
-                        {currencies.map(currency => (
-                            <option value={currency.name} key={currency.name}>
-                                {currency.name}</option>
-                        ))}
-                    </StyledSelect>
                 </label>
                 </Item>
                 </List>
@@ -75,9 +90,11 @@ const Form = () => {
                 <StyledResult>
                 <span>Twoja kwota wynosi:</span>
                         <strong>
-                            <Result showResult={showResult} result={result} />
+                            <Result result={result} />
                         </strong>
                 </StyledResult>
+                </section>
+                )}
             </Fieldset>
         </StyledForm>
     )
