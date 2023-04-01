@@ -90,13 +90,14 @@ const Form = () => {
                                 <span>Twoja kwota wynosi:</span>
                                     <Result result={result} />        
                             </StyledResult>
-                            <StyledParagraph>
-                                Kurs walut pochodzi z Europejskiego Banku Centralnego z dnia: 
-                                    <strong>{ratesData.date}</strong>
-                            </StyledParagraph>
+                            
                     </section>
                 )}
             </Fieldset>
+                <StyledParagraph>
+                    Kurs walut pochodzi z Europejskiego Banku Centralnego z dnia: 
+                        <strong>{ratesData.date}</strong>
+                </StyledParagraph>
         </StyledForm>
     )
 };

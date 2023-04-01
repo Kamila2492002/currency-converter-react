@@ -8,6 +8,7 @@ export const StyledForm = styled.form`
 export const Fieldset = styled.fieldset`
     display: block;
     max-width: 650px;
+    min-height: 300px;
     margin: auto auto;
     border-radius: 5px;
     border-color: rgb(44, 43, 43);
@@ -47,7 +48,7 @@ export const StyledSelect = styled.select`
 
 export const Button = styled.button`
     position: relative;
-    margin: 0px 0px 15px;
+    margin: 0px 0px 35px;
     transition: 0.5s;
     width: 100%;
     background-color: rgb(171 171 171 / 57%);
