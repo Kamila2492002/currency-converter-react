@@ -41,7 +41,7 @@ const Form = () => {
                 <Legend>Kalkulator Walut</Legend>
                 {ratesData.state === "loading" ? (
                     <Loading>
-                        Prosimy czekąc, trwa ładowanie kursu walut z Europejskiego Banku Centralnego
+                        Prosimy czekać, trwa ładowanie kursu walut z Europejskiego Banku Centralnego
                     </Loading>
                 ) : ratesData.state === "error" ? (
                     <Fail>
