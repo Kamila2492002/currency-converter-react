@@ -17,6 +17,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - JavaScript
 - Git 
 - React
+- Styled Components
+- Custom Hooks
+- Immutability
+- Local storage
+- JSX
+- API
+
 
 ## Available Scripts
 
