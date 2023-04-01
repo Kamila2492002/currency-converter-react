@@ -8,6 +8,7 @@ import { StyledForm,
     StyledSelect, 
     Button, 
     StyledResult,
+    StyledParagraph,
     Loading,
     Fail } from "./styled";
 import { Result } from "../Result";
@@ -48,52 +49,52 @@ const Form = () => {
                         Coś poszło nie tak. Sprawdź połączenie z Internetem lub spróbuj ponownie później.
                     </Fail>
                 ) : (
-                <section>
-                <Clock/>
-                <List>
-                <Item>
-                <label>
-                    <LabelText>Kwota do wymiany w PLN:</LabelText>
-                        <StyledSelect 
-                            as="input"
-                            value={amount}
-                            onChange={({ target }) => setAmount(target.value)}
-                            type="number" 
-                            name="pln" 
-                            required step="0.01" 
-                            min="0"
-                            placeholder="Wpisz kwotę" 
-                        />
-                </label>
-                </Item>
-                <Item>
-                <label>
-                    <LabelText>Wybierz walutę:</LabelText>
-                        <StyledSelect 
-                            value={currency} 
-                            onChange={({ target }) => setCurrency(target.value)} 
-                        >
-                            {Object.keys(ratesData.rates).map((currency) => {
-                                return (
-                                    <option key={currency} value={currency}>
-                                        {currency}
-                                    </option>
-                                );
-                            })}
-                        </StyledSelect>
-                </label>
-                </Item>
-                </List>
-                <div>
-                    <Button>Przelicz</Button>
-                </div>
-                <StyledResult>
-                <span>Twoja kwota wynosi:</span>
-                        <strong>
-                            <Result result={result} />
-                        </strong>
-                </StyledResult>
-                </section>
+                    <section>
+                        <Clock/>
+                            <List>
+                            <Item>
+                                <label>
+                                    <LabelText>Kwota do wymiany w PLN:</LabelText>
+                                        <StyledSelect 
+                                            as="input"
+                                            value={amount}
+                                            onChange={({ target }) => setAmount(target.value)}
+                                            type="number" 
+                                            name="pln" 
+                                            required step="0.01" 
+                                            min="0"
+                                            placeholder="Wpisz kwotę" 
+                                        />
+                                </label>
+                            </Item>
+                            <Item>
+                                <label>
+                                    <LabelText>Wybierz walutę:</LabelText>
+                                        <StyledSelect 
+                                            value={currency} 
+                                            onChange={({ target }) => setCurrency(target.value)} 
+                                        >
+                                            {Object.keys(ratesData.rates).map((currency) => (
+                                                <option key={currency} value={currency}>
+                                                    {currency}
+                                                </option>
+                                             ))}
+                                        </StyledSelect>
+                                </label>
+                            </Item>
+                            </List>
+                                <div>
+                                    <Button>Przelicz</Button>
+                                </div>
+                            <StyledResult>
+                                <span>Twoja kwota wynosi:</span>
+                                    <Result result={result} />        
+                            </StyledResult>
+                            <StyledParagraph>
+                                Kurs walut pochodzi z Europejskiego Banku Centralnego z dnia: 
+                                    <strong>{ratesData.date}</strong>
+                            </StyledParagraph>
+                    </section>
                 )}
             </Fieldset>
         </StyledForm>
