@@ -58,8 +58,14 @@ export const StyledResult = styled.div`
 
 export const Loading = styled.p`
     color: teal;
+    justify-content: center;
+    min-width: 500px;
+    min-height: 200px;
 `;
 
 export const Fail = styled.p`
     color: crimson;
+    justify-content: center;
+    min-width: 500px;
+    min-height: 200px;
 `;

@@ -4,5 +4,5 @@ export const StyledResult = styled.div`
     display: flex;
     justify-content: center;
     margin: auto;
-    font-size: 25px;
+    font-size: 20px;
 `;
